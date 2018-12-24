@@ -1,9 +1,8 @@
-import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ToolbarComponent } from './toolbar/toolbar.component';
-import { AuthService } from './auth.service';
-import { throwIfAlreadyLoaded } from './module-import-guard';
+import { NgModule } from '@angular/core';
 import { AuthGuard } from './auth.guard';
+import { AuthService } from './auth.service';
+import { ToolbarComponent } from './toolbar/toolbar.component';
 
 @NgModule({
   imports: [
