@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../core/auth.service';
 import { Router } from '@angular/router';
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -14,26 +15,29 @@ export class LoginComponent implements OnInit {
     password: ''
   };
 
-  constructor(private authService: AuthService, private router: Router) { }
+  loginError = '';
+  loginForm: FormGroup;
+
+  constructor(
+    public authService: AuthService,
+    private router: Router,
+    private fb: FormBuilder
+  ) {
+    this.createLoginForm();
+  }
 
   ngOnInit() {
   }
 
-  signInWithGoogle() {
-    this.authService.signInWithGoogle()
-      .then((res) => {
-        this.router.navigate(['dashboard'])
-      })
-      .catch((err) => console.log(err));
+  createLoginForm() {
+    this.loginForm = this.fb.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required]
+    });
   }
 
-  signInWithEmail() {
-    this.authService.signInRegular(this.user.email, this.user.password)
-      .then((res) => {
-        console.log(res);
-        this.router.navigate(['dashboard']);
-      })
-      .catch((err) => console.log('error: ' + err));
+  login() {
+    this.loginError = '';
   }
 
 }

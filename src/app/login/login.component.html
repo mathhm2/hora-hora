@@ -18,9 +18,10 @@
       <input type="checkbox" value="remember-me"> Remember me
     </label>
   </div>
+
   <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="signInWithEmail()" [disabled]="formCtrl.form.invalid">Sign in</button>
 
-  <button type="button" class="btn btn-block" (click)="signInWithGoogle()">
+  <button type="button" class="btn btn-lg btn-danger btn-block" (click)="authService.googleLogin()">
     <i class="fa fa-google" aria-hidden="true"></i>
     Login with Google
   </button>
