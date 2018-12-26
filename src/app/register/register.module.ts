@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { RegisterRoutingModule } from './register-routing.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './register.component';
 import { RegisterService } from './register.service';
 
@@ -10,6 +10,7 @@ import { RegisterService } from './register.service';
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     RegisterRoutingModule
   ],
   declarations: [
