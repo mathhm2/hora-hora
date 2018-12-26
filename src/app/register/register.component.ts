@@ -11,14 +11,30 @@ export class RegisterComponent implements OnInit {
 
   errorMessage: string;
   successMessage: string;
+  user: { email: string; password: string; confirmPassword: string; };
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService) {
+    this.user = {
+      email: '',
+      password: '',
+      confirmPassword: ''
+    }
+  }
 
   ngOnInit() {
   }
 
-  backToLogin() {
-    this.router.navigate(['/login'])
+  cadastrarUsuario() {
+    let password = null;
+    if (this.user.password != this.user.confirmPassword) {
+      return;
+    } else {
+      password = this.user.password;
+    }
+
+    this.authService.emailSignUp(this.user.email, password)
+      .then(() => console.log('Sucesso'))
+      .catch((error) => console.log(error))
   }
 
 }

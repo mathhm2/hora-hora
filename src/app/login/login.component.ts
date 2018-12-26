@@ -36,8 +36,10 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  login() {
-    this.loginError = '';
+  loginWithEmail() {
+    this.authService.emailLogin(this.user.email, this.user.password)
+      .then(() => console.log('Sucesso'))
+      .catch((error) => console.log(error));
   }
 
 }

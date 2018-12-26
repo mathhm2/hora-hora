@@ -6,11 +6,8 @@
     <p>This example is a quick exercise to illustrate how the default, static navbar and fixed to top navbar work. It
       includes the responsive CSS and HTML, so it also adapts to your viewport and device.</p>
 
-    <div *ngIf="!isLoggedIn()">
-      <a class="btn btn-lg btn-primary" href="" role="button" (click)="logout()">Login</a>
-    </div>
-    <div *ngIf="isLoggedIn()">
-      <a class="btn btn-lg btn-primary" href="" role="button" (click)="logout()">Logout</a>
+    <div>
+      <a class="btn btn-lg btn-primary" href="" role="button" (click)="authService.signOut()">Logout</a>
     </div>
 
   </div>

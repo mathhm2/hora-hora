@@ -1,51 +1,35 @@
-<form class="form-signin card" name="userform" method="post" #formCtrl="ngForm">
-  <div class="text-center mb-4">
-    <h1 class="h3 mb-3 font-weight-normal">Hora Hora</h1>
+<form class="form-signin card">
+  <div class="text-center mb-5">
+    <img class="logo" title="Logo" src="assets/icons/wall-calendar.svg" alt="logo">
+    <!-- <h1 class="h3 mb-3 font-weight-normal">Hora Hora</h1> -->
   </div>
 
   <div class="form-label-group">
-    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus=""
-      [(ngModel)]="user.email" name="email">
-    <label for="inputEmail">Email address</label>
+    <input type="email" id="email" class="form-control" placeholder="Email address" [(ngModel)]="user.email" name="email">
+    <label for="email">Email address</label>
   </div>
 
   <div class="form-label-group">
-    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="" [(ngModel)]="user.password"
-      name="password">
-    <label for="inputPassword">Password</label>
+    <input type="password" id="password" class="form-control" placeholder="Password" [(ngModel)]="user.password" name="password">
+    <label for="password">Password</label>
   </div>
 
   <div class="d-flex align-items-center mb-4">
-    <div class="mr-auto my-1">
-      <div class="custom-control custom-checkbox mr-sm-2">
-        <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
-        <label class="custom-control-label" for="customControlAutosizing">Remember my preference</label>
-      </div>
-    </div>
-
-    <div class="my-1">
-      <a class="btn btn-link hora-text">Forget password?</a>
-    </div>
+    <a class="btn btn-link hora-text pl-0" [routerLink]="['/forget-password']">Forget password?</a>
   </div>
 
-  <button class="btn btn-lg btn-primary btn-block mb-3" type="submit" (click)="signInWithEmail()" [disabled]="formCtrl.form.invalid">Sign
-    in</button>
+  <button class="btn btn-lg btn-primary btn-block mb-3" type="submit" (click)="loginWithEmail()">Sign in</button>
 
   <div>
-    <p class="mt-5 mb-4 text-muted text-center">or <b>Sign Up</b> with</p>
+    <p class="mt-4 mb-4 text-muted text-center">or <b>Sign Up</b> with</p>
   </div>
 
   <div class="text-center">
     <img class="google-icon-login" title="Login with Google" src="assets/icons/google.svg" alt="google login" (click)="authService.googleLogin()">
   </div>
 
-  <!-- <button type="button" class="btn btn-lg btn-danger btn-block" (click)="authService.googleLogin()">
-    <i class="fa fa-google" aria-hidden="true"></i>
-    Login with Google
-  </button> -->
-
   <div class="text-center">
-    <a class="mt-5 mb-2 btn btn-link hora-text">Create Account</a>
+    <a class="mt-3 mb-3 btn btn-link hora-text" [routerLink]="['/register']">Create Account</a>
   </div>
 
   <p class="mb-3 text-muted text-center">© 2017-2018</p>

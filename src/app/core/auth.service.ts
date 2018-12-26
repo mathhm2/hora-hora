@@ -48,6 +48,26 @@ export class AuthService {
       })
   }
 
+  emailSignUp(email: string, password: string) {
+    return this.firebaseAuth.auth.createUserWithEmailAndPassword(email, password)
+      .then((credential) => {
+        this.updateUserData(credential.user);
+        this.router.navigate(['/dashboard']);
+        console.log('success')
+      })
+      .catch(error => console.log(error));
+  }
+
+  emailLogin(email: string, password: string) {
+    return this.firebaseAuth.auth.signInWithEmailAndPassword(email, password)
+      .then((credential) => {
+        this.updateUserData(credential.user);
+        this.router.navigate(['/dashboard']);
+        console.log('success')
+      })
+      .catch(error => console.log(error));
+  }
+
   private updateUserData(user) {
     const userRef: AngularFirestoreDocument<any> = this.firebaseStore.doc(`user/${user.uid}`);
 
@@ -63,14 +83,8 @@ export class AuthService {
 
   signOut() {
     this.firebaseAuth.auth.signOut()
-      .then(() => {
-        this.router.navigate(['/']);
-      });
-  }
-
-  signInRegular(email, password) {
-    const credential = firebase.auth.EmailAuthProvider.credential(email, password);
-    return this.firebaseAuth.auth.signInWithEmailAndPassword(email, password)
+      .then(() => { this.router.navigate(['/']) })
+      .catch((error) => console.log(error));
   }
 
 }
