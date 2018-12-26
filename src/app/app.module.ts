@@ -11,6 +11,10 @@ import { LoginModule } from './login/login.module';
 import { RegisterModule } from './register/register.module';
 import { CoreModule } from './core/core.module';
 
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -25,7 +29,8 @@ import { CoreModule } from './core/core.module';
 
     LoginModule,
     RegisterModule,
-    DashboardModule
+    DashboardModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

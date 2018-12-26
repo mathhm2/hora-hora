@@ -3,10 +3,14 @@ import { NgModule } from '@angular/core';
 import { AuthGuard } from './auth.guard';
 import { AuthService } from './auth.service';
 import { ToolbarComponent } from './toolbar/toolbar.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    FontAwesomeModule,
+    RouterModule
   ],
   declarations: [
     ToolbarComponent
