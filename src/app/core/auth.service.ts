@@ -1,65 +1,76 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { Router } from '@angular/router';
+import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
+import { switchMap } from 'rxjs/operators';
+
+interface User {
+  uid: string;
+  email: string;
+  photoURL?: string;
+  displayName?: string;
+  favoriteColor?: string;
+}
 
 @Injectable()
 export class AuthService {
 
-  private user: Observable<firebase.User>;
-  private userDetails: firebase.User = null;
+  user: Observable<User>;
 
   constructor(
     private firebaseAuth: AngularFireAuth,
+    private firebaseStore: AngularFirestore,
     private router: Router
   ) {
-    this.user = firebaseAuth.authState;
 
-    this.user.subscribe(
-      (user) => {
+    this.user = this.firebaseAuth.authState
+      .pipe(switchMap(user => {
         if (user) {
-          this.userDetails = user;
-          console.log(this.userDetails);
+          return this.firebaseStore.doc<User>(`user/${user.uid}`).valueChanges();
         } else {
-          this.userDetails = null;
+          return of(null);
         }
-      }
-    );
+      }));
   }
 
-  register(value) {
-    return new Promise<any>((resolve, reject) => {
-      firebase.auth().createUserWithEmailAndPassword(value.email, value.password)
-        .then(res => {
-          resolve(res);
-        }, err => reject(err))
-    })
+  googleLogin() {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    return this.oAuthLogin(provider);
+  }
+
+  private oAuthLogin(provider) {
+    return this.firebaseAuth.auth.signInWithPopup(provider)
+      .then((credential) => {
+        this.updateUserData(credential.user);
+        this.router.navigate(['/dashboard']);
+      })
+  }
+
+  private updateUserData(user) {
+    const userRef: AngularFirestoreDocument<any> = this.firebaseStore.doc(`user/${user.uid}`);
+
+    const data: User = {
+      uid: user.uid,
+      email: user.email,
+      photoURL: user.photoURL,
+      displayName: user.displayName,
+    };
+
+    return userRef.set(data, { merge: true });
+  }
+
+  signOut() {
+    this.firebaseAuth.auth.signOut()
+      .then(() => {
+        this.router.navigate(['/']);
+      });
   }
 
   signInRegular(email, password) {
     const credential = firebase.auth.EmailAuthProvider.credential(email, password);
     return this.firebaseAuth.auth.signInWithEmailAndPassword(email, password)
   }
-
-  signInWithGoogle() {
-    return this.firebaseAuth.auth.signInWithPopup(
-      new firebase.auth.GoogleAuthProvider()
-    )
-  }
-
-  isLoggedIn() {
-    if (this.userDetails == null) {
-      return false;
-    } else {
-      return true;
-    }
-  }
-
-  logout() {
-    this.firebaseAuth.auth.signOut()
-      .then((res) => this.router.navigate(['/']));
-  }
-
 
 }

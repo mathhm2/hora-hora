@@ -90,3 +90,29 @@
     color: #777;
   }
 }
+
+.hora-text {
+  color: #555 !important;
+  font-weight: 500;
+
+  &:hover {
+    color: #007bff !important;
+  }
+}
+
+.google-icon-login {
+  max-width: 50px;
+  background-color: transparent;
+  border-radius: 50%;
+  border: 1px solid #0000000f;
+  padding: 10px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #f7f7f7;
+  }
+}
+
+.card {
+  border-radius: 1.25rem;
+}
