@@ -1,3 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'style/_material-icons.scss';
+@import 'style/fonts';
+
 @import "~bootstrap/dist/css/bootstrap.css";
 @import "~font-awesome/css/font-awesome.css";
+@import '~ngx-toastr/toastr.css';

@@ -81,6 +81,12 @@ export class AuthService {
     return userRef.set(data, { merge: true });
   }
 
+  passwordReset(email: string) {
+    return this.firebaseAuth.auth.sendPasswordResetEmail(email)
+      .then(() => console.log('Sucesso'))
+      .catch((error) => console.log(error));
+  }
+
   signOut() {
     this.firebaseAuth.auth.signOut()
       .then(() => { this.router.navigate(['/']) })

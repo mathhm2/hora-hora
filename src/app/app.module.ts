@@ -10,22 +10,39 @@ import { DashboardModule } from './dashboard/dashboard.module';
 import { LoginModule } from './login/login.module';
 import { RegisterModule } from './register/register.module';
 import { CoreModule } from './core/core.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
+    BrowserModule,
+    ReactiveFormsModule,
+    CoreModule,
+    AppRoutingModule,
+    FormsModule,
+    BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
-    BrowserModule,
-    AppRoutingModule,
-    CoreModule,
 
+    //Feature Modules
     LoginModule,
     RegisterModule,
-    DashboardModule
+    DashboardModule,
+
+    // Sempre por ultimo
+    ToastrModule.forRoot({
+      positionClass: 'toast-bottom-right',
+      timeOut: 10000,
+      closeButton: true,
+      progressBar: true
+    }),
+    ModalModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
