@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
     this.authService.passwordReset(this.rescueEmail)
       .then(() => {
         this.modalRef.hide();
-        console.log('Deu certo');
+        console.log("email sent");
       })
       .catch((error) => console.log(error));
   }

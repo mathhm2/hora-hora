@@ -98,9 +98,12 @@
 .hora-text {
   color: #555 !important;
   font-weight: 500;
+  text-decoration: none;
+  font-size: 14px;
 
   &:hover {
     color: #007bff !important;
+    text-decoration: none;
   }
 }
 
@@ -119,4 +122,8 @@
 
 .card {
   border-radius: 1.25rem;
+}
+
+.fs-16 {
+  font-size: 16px !important;
 }
