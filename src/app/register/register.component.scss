@@ -90,3 +90,19 @@
     color: #777;
   }
 }
+
+.logo {
+  width: 100px;
+}
+
+.card {
+  border-radius: 1.25rem;
+}
+
+.invalid-feedback {
+  display: block;
+  width: 100%;
+  margin-top: 0.25rem;
+  font-size: 80%;
+  color: #dc3545;
+}

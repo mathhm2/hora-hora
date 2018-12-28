@@ -5,7 +5,10 @@ import { RegisterComponent } from './register.component';
 const routes: Routes = [
   {
     path: 'register',
-    component: RegisterComponent
+    component: RegisterComponent,
+    data: {
+      toolbar: false
+    }
   }
 ];
 
