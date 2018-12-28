@@ -12,8 +12,8 @@ import { RegisterModule } from './register/register.module';
 import { CoreModule } from './core/core.module';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { ConfiguracaoComponent } from './configuracao/configuracao.component';
+import { ConfiguracaoModule } from './configuracao/configuracao.module';
 
 @NgModule({
   declarations: [
@@ -23,6 +23,7 @@ import { faCoffee } from '@fortawesome/free-solid-svg-icons';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
+    AngularFirestoreModule,
     BrowserModule,
     AppRoutingModule,
     CoreModule,
@@ -30,7 +31,8 @@ import { faCoffee } from '@fortawesome/free-solid-svg-icons';
     LoginModule,
     RegisterModule,
     DashboardModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    ConfiguracaoModule
   ],
   providers: [],
   bootstrap: [AppComponent]

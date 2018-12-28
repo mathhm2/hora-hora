@@ -1,18 +1,29 @@
 <div class="container">
-
-  <!-- Main component for a primary marketing message or call to action -->
-  <div class="jumbotron">
-    <h1>Welcome to Dashboard</h1>
-    <p>This example is a quick exercise to illustrate how the default, static navbar and fixed to top navbar work. It
-      includes the responsive CSS and HTML, so it also adapts to your viewport and device.</p>
-
-    <div *ngIf="!isLoggedIn()">
-      <a class="btn btn-lg btn-primary" href="" role="button" (click)="logout()">Login</a>
-    </div>
-    <div *ngIf="isLoggedIn()">
-      <a class="btn btn-lg btn-primary" href="" role="button" (click)="logout()">Logout</a>
-    </div>
-
+  <div class="w-100 welcome">
+    <h1>Welcome Dashboard</h1>
+    <p>Controle de ponto</p>
   </div>
 
-</div> <!-- /container -->
+
+
+  <div class="d-flex ">
+
+
+    <div class="card w-100 mr-3 card-dashboard" [ngClass]="(0 >= 0) ? 'bg-positivo' : 'bg-negativo' ">
+      <i class="icon_dash icon_clock"></i>
+      <div class="text_dash">
+        <h2>0 H</h2>
+        <h5>Banco Horas</h5>
+      </div>
+    </div>
+
+    <div class="card w-100 mr-3 card-dashboard">
+      <i class="icon_dash icon_work"></i>
+      <div class="text_dash">
+        <h2>00 H</h2>
+        <h5>Horas Trabalhadas</h5>
+      </div>
+    </div>
+  </div>
+</div>
+

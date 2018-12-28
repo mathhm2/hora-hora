@@ -1,18 +1,33 @@
 .navbar {
   background-color: #339af0;
 
-  .btn-navbar{
-    background: #fff;
+  .btn-navbar {
+    color: #fff;
     text-align: center;
     width: 30px;
     height: 25px;
     border-radius: 2px;
-    box-shadow: 0 0 5px #000;
   }
-  & :hover{
-    box-shadow: none;
+
+  .navbar-nav {
+    background-color: #3a3f44;
+
+    .nav-item {
+      border-bottom: 1px solid #aeaeae5e;
+
+      .nav-link {
+        color: #ffffff;
+      }
+
+      & :hover {
+        background-color: #4a4a4a;
+      }
+    }
   }
 }
+
+
+
 
 .logo_hora-hora {
   width: 100%;
