@@ -19,6 +19,10 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ConfiguracaoComponent } from './configuracao/configuracao.component';
+import { ConfiguracaoModule } from './configuracao/configuracao.module';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -35,11 +39,17 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
     AngularFireDatabaseModule,
     AngularFirestoreModule,
     AngularFireAuthModule,
+    AngularFirestoreModule,
+    BrowserModule,
+    AppRoutingModule,
+    CoreModule,
 
     //Feature Modules
     LoginModule,
     RegisterModule,
     DashboardModule,
+    FontAwesomeModule,
+    ConfiguracaoModule,
 
     // Sempre por ultimo
     ToastrModule.forRoot({

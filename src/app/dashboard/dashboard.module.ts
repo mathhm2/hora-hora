@@ -5,12 +5,14 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardService } from './dashboard.service';
 import { FormsModule } from '@angular/forms';
 import { DashboardComponent } from './dashboard.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    DashboardRoutingModule
+    DashboardRoutingModule,
+    FontAwesomeModule
   ],
   declarations: [
     DashboardComponent
