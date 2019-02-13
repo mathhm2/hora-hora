@@ -1,0 +1,85 @@
+<div class="modal fade" bsModal #modal="bs-modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+
+      <!-- MODAL -->
+      <div class="modal-body">
+        <div class="d-flex mb-5 align-self-center">
+          <h4 class="mr-auto">Log de Horario</h4>
+          <button type="button" class="close pull-right" aria-label="Close" (click)="modal.hide()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div>
+          <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+            <div class="form-group row box-hor">
+              <label for="inputDate" class="vertical-align labelCadastroPonto">Date</label>
+              <div class="box-hor-input">
+                <input #dp="bsDatepicker" bsDatepicker [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }" [bsValue]="bsValue"
+                  id="inputDate" [ngClass]="{ 'is-invalid': submitted && f.date.errors }" formControlName="date" type="text"
+                  class="form-control" aria-describedby="emailHelp">
+                <div class="invalid-feedback" *ngIf="submitted && f.date.errors">Informe o dia de registro</div>
+              </div>
+            </div>
+
+            <div class="form-check">
+              <input formControlName="lack" type="checkbox" class="form-check-input" id="inputButtonLack">
+              <label class="form-check-label" for="inputButtonLack"> Lack</label>
+            </div>
+
+            <div class="journeyContent">
+              <div class="journeyShadow" *ngIf="f.lack.value" >
+              </div>
+
+              <div class="form-group row box-hor">
+                <label for="inputStartJourney" class="vertical-align labelCadastroPonto">Start Journey</label>
+                <div class="box-hor-input">
+                  <input id="inputStartJourney" [dropSpecialCharacters]="false" [ngClass]="{ 'is-invalid': submitted && f.startJourney.errors }"
+                    formControlName="startJourney" mask="Hh:m0" type="text" class="form-control" aria-describedby="emailHelp">
+                  <div class="invalid-feedback" *ngIf="submitted && f.startJourney.errors">Informe a hora de entrada</div>
+                </div>
+              </div>
+
+              <div class="form-group row box-hor">
+                <label for="inputPauseJourney" class="vertical-align labelCadastroPonto">Pause Journey</label>
+                <div class="box-hor-input">
+                  <input id="inputPauseJourney" [dropSpecialCharacters]="false" [ngClass]="{ 'is-invalid': submitted && f.pauseJourney.errors }"
+                    formControlName="pauseJourney" mask="Hh:m0" type="text" class="form-control" aria-describedby="emailHelp">
+                  <div class="invalid-feedback" *ngIf="submitted && f.pauseJourney.errors">Informe a hora de inicio do
+                    intervalo</div>
+                </div>
+              </div>
+
+              <div class="form-group row box-hor">
+                <label for="inputBackJourney" class="vertical-align labelCadastroPonto">Back Journey</label>
+                <div class="box-hor-input">
+                  <input id="inputBackJourney" [dropSpecialCharacters]="false" [ngClass]="{ 'is-invalid': submitted && f.backJourney.errors }"
+                    formControlName="backJourney" mask="Hh:m0" type="text" class="form-control" aria-describedby="emailHelp">
+                  <div class="invalid-feedback" *ngIf="submitted && f.backJourney.errors">Informe a hora do fim do
+                    intervalo</div>
+                </div>
+              </div>
+
+              <div class="form-group row box-hor">
+                <label for="inputEndJourney" class="vertical-align labelCadastroPonto">Saída</label>
+                <div class="box-hor-input">
+                  <input id="inputEndJourney" [dropSpecialCharacters]="false" [ngClass]="{ 'is-invalid': submitted && f.endJourney.errors }"
+                    formControlName="endJourney" mask="Hh:m0" type="text" class="form-control" aria-describedby="emailHelp">
+                  <div class="invalid-feedback" *ngIf="submitted && f.endJourney.errors">Informe a hora de saída</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="d-flex justify-content-end">
+              <span class="btn btn-light" (click)="modal.hide()">Cancelar</span>
+              <button class="ml-3 btn btn-primary" ng-disabled="btnSubmitHelper">Salvar</button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+      <!-- /MODAL-->
+    </div>
+  </div>
+</div>

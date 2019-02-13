@@ -1,0 +1,43 @@
+.labelCadastroPonto {
+  width: 120px;
+  padding: 0 20px;
+}
+
+.cadastroTitle {
+  button: {
+    margin-top: -10px;
+  }
+}
+
+.form-check {
+  margin-bottom: 20px;
+}
+
+.journeyContent {
+  position: relative;
+  padding: 5px 0;
+  display: block;
+  margin-bottom: 10px;
+
+  .journeyShadow {
+    background-color: #00000045;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    top: 0;
+    left: 0;
+  }
+}
+
+.form-group:last-of-type {
+  margin-bottom: 0;
+}
+
+
+@media (min-width: 576px) {
+  .modal-sm {
+    max-width: 450px;
+  }
+
+}

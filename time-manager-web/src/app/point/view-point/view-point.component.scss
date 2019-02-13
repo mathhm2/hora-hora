@@ -1,0 +1,139 @@
+.botoes {
+  line-height: 1;
+  cursor: pointer;
+  color: #777;
+  margin: 5px 0 0 0;
+
+  .btn-light {
+    background-color: #EBEBEB;
+    color: #777;
+    padding: 3px 10px;
+    margin: -10px 0 0 5px;
+  }
+
+  .botoes-arrow {
+    padding: 0 10px;
+    margin-left: 14px;
+  }
+
+  .textDate {
+    cursor: default;
+  }
+}
+
+
+.semana {
+  p {
+    width: 70px;
+    height: 15px;
+    float: left;
+    margin: 5px;
+    font-size: 12px;
+    text-align: right;
+    color: #999;
+    padding: 0 5px;
+  }
+}
+
+.card_calendario {
+  width: 600px;
+  display: block;
+  float: left;
+  padding: 19px;
+
+  .dayCalendario {
+    width: 70px;
+    height: 70px;
+    position: relative;
+    border-radius: 5px;
+    background-color: hsl(0, 0%, 86%);
+    float: left;
+    margin: 5px;
+    cursor: pointer;
+
+    .day {
+      font-size: 16px;
+      color: #555;
+      margin: 0 5px;
+      font-weight: bold;
+    }
+
+    .hor {
+      font-size: 14px;
+      color: #777;
+      text-align: right;
+      position: absolute;
+      bottom: 5px;
+      right: 10px;
+      margin: 0;
+    }
+  }
+
+  .dayCalendario.pendente {
+    background-color: hsl(48, 100%, 67%);
+  }
+
+  .dayCalendario.positivo {
+    background-color: hsl(141, 71%, 48%);
+
+    .hor {
+      color: #fff;
+    }
+
+    .day {
+      color: #fff;
+    }
+  }
+
+
+  .dayCalendario.negativo {
+    background-color: hsl(348, 100%, 61%);
+
+    .hor {
+      color: #fff;
+    }
+
+    .day {
+      color: #fff
+    }
+  }
+
+  .dayCalendario.desativado {
+    background-color: hsl(0, 0%, 86%);
+    cursor: default;
+
+    .hor {
+      color: rgb(190, 190, 190);
+    }
+
+    .day {
+      color: rgb(173, 173, 173)
+    }
+  }
+
+  .dayCalendario.desativadoMes {
+    background-color: #d4d2d2;
+    cursor: default;
+
+    .hor {
+      color: rgb(205, 205, 205);
+    }
+
+    .day {
+      color: rgb(200, 200, 200)
+    }
+  }
+
+  .dayCalendario.day {
+    background-color: #3893ff;
+
+    .hor {
+      color: #ffffff;
+    }
+
+    .day {
+      color: #dddddd;
+    }
+  }
+
+}

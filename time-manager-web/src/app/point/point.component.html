@@ -1,0 +1,9 @@
+<div class="auxBody"></div>
+<main class="container">
+  <div class="card-head">
+    <h3 class="display-1 text-light page-title">{{ title }}</h3>
+  </div>
+
+  <app-register-point #registerPoint (reloadComponent)="viewComponent.reaload()"></app-register-point>
+  <app-view-point (openModal)="registerPoint.openModal(viewComponent.SelectDate)" #viewComponent></app-view-point>
+</main>

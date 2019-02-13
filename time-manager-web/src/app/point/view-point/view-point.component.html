@@ -1,0 +1,31 @@
+<div class="card card_calendario">
+  <div class="botoes d-flex mb-3">
+    <div class="flex-grow-1 ">
+      <button class="btn btn-light" (click)="buttonToday()">Today</button>
+    </div>
+    <span class="textDate">{{ months[activeMonth] }} de {{activeYear}}</span>
+    <span class="botoes-arrow" (click)="buttonPrevious()">
+      <fa-icon [icon]="faAngleLeft"></fa-icon>
+    </span>
+    <span class="botoes-arrow" (click)="buttonNext()">
+      <fa-icon [icon]="faAngleRight"></fa-icon>
+    </span>
+  </div>
+  <div class="semana">
+    <p>Dom.</p>
+    <p>Seg.</p>
+    <p>Ter.</p>
+    <p>Qua.</p>
+    <p>Qui.</p>
+    <p>Sex.</p>
+    <p>Sab.</p>
+  </div>
+  <div class="month">
+    <div (click)="disparaEvento($event, card.day, card.class, card._id)" class="dayCalendario" *ngFor="let card of Calendar"
+      [ngClass]="card.class">
+      <p class="day">{{ card.day }}</p>
+      <p class="hor">{{ card.balanceHours }}</p>
+    </div>
+  </div>
+
+</div>
