@@ -4665,6 +4665,16 @@ neo-async@^2.5.0:
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.0.tgz#b9d15e4d71c6762908654b5183ed38b753340835"
   integrity sha512-MFh0d/Wa7vkKO3Y3LlacqAEeHK0mckVqzDieUKTT+KGxi+zIpeVsFxymkIiRpbpDziHc290Xr9A1O4Om7otoRA==
 
+ng2-toastr@^4.1.2:
+  version "4.1.2"
+  resolved "https://registry.yarnpkg.com/ng2-toastr/-/ng2-toastr-4.1.2.tgz#1b452f07139961c38f866c6e24a06247efa21b11"
+  integrity sha1-G0UvBxOZYcOPhmxuJKBiR++iGxE=
+
+ng6-toastr@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/ng6-toastr/-/ng6-toastr-6.0.0.tgz#9bf28e723e5ed2c4e01ba783a60f46a3b78656b2"
+  integrity sha512-YUmJIS3ozqH1oKtKK1LcH4oTYFd30YOwn/FcziP8KZ48qcjDLDXSRli5lHP+e/10UbXSrvEil8ubW9m0qI1DQQ==
+
 ngx-bootstrap@^3.1.4:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/ngx-bootstrap/-/ngx-bootstrap-3.2.0.tgz#ece7c48af0bc260462c3f77de14f22d4b3dde149"
