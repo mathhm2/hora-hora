@@ -10,7 +10,7 @@ export class ConfigurationService {
   constructor(private http: HttpClient) { }
 
   getConfigurationByUser(userID) {
-    return this.http.get(this.url + '/configuration/query/' + userID);
+    return this.http.get(this.url + '/configuration/' + userID);
   }
 
   updateConfiguration(_id, data) {
@@ -18,6 +18,7 @@ export class ConfigurationService {
   }
 
   createConfiguration(data) {
+    delete data._id;
     return this.http.post(this.url + '/configuration', data);
   }
 

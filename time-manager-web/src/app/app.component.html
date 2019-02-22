@@ -1,4 +1,4 @@
-<a routerLink="configuration">Configuration</a>
-<a routerLink="point">point</a>
+<app-toolbar *ngIf="isShowToolbar"></app-toolbar>
+<app-nav-bar *ngIf="isShowNavBar"></app-nav-bar>
 
 <router-outlet></router-outlet>

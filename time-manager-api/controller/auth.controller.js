@@ -55,7 +55,7 @@ exports.login = (req, res, next) => {
               res.status(200).send({
                 code: 'auth/login-success',
                 message: 'User logedin successfully',
-                userId: user._id,
+                user: user,
                 token: token
               })
             } else {

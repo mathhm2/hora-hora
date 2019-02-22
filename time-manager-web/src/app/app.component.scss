@@ -1,1 +1,122 @@
+::ng-deep html,
+::ng-deep body {
+  height: 100%;
+  background: #ebeff5;
+  color: #293e52;
+  font-family: avenirregular, Helvetica, sans-serif;
+}
 
+::ng-deep .text-purple {
+  color: #8238ff !important;
+}
+
+::ng-deep .bg-purple {
+  background-color: #8238ff !important;
+}
+
+::ng-deep .page-title {
+  font-size: 2rem;
+}
+
+::ng-deep .text-danger {
+  color: hsl(348, 100%, 61%) !important;
+}
+
+::ng-deep .text-warning {
+  color: hsl(48, 71%, 43%) !important;
+}
+
+::ng-deep .text-success {
+  color: hsl(141, 71%, 48%) !important;
+}
+
+::ng-deep .text-info {
+  color: hsl(204, 86%, 53%) !important;
+}
+
+::ng-deep .text-link {
+  color: hsl(217, 71%, 53%) !important;
+}
+
+::ng-deep .text-ciano {
+  color: hsl(171, 100%, 41%) !important;
+}
+
+::ng-deep .text-dark {
+  color: hsl(0, 0%, 21%) !important;
+}
+
+::ng-deep .text-grey-light {
+  color: #5b5b5b !important;
+}
+
+::ng-deep .text-light {
+  color: hsl(0, 0%, 96%) !important;
+}
+
+::ng-deep .text-black {
+  color: hsl(0, 0%, 4%) !important;
+}
+
+::ng-deep .text-white {
+  color: hsl(0, 0%, 100%) !important;
+}
+
+::ng-deep .bg-danger {
+  background-color: hsl(348, 100%, 61%) !important;
+}
+
+::ng-deep .bg-warning {
+  background-color: hsl(48, 71%, 43%) !important;
+}
+
+::ng-deep .bg-success {
+  background-color: hsl(141, 71%, 48%) !important;
+}
+
+::ng-deep .bg-info {
+  background-color: hsl(204, 86%, 53%) !important;
+}
+
+::ng-deep .bg-link {
+  background-color: hsl(217, 71%, 53%) !important;
+}
+
+::ng-deep .bg-ciano {
+  background-color: hsl(171, 100%, 41%) !important;
+}
+
+::ng-deep .bg-dark {
+  background-color: hsl(0, 0%, 21%) !important;
+}
+
+::ng-deep .bg-light {
+  background-color: hsl(0, 0%, 96%) !important;
+}
+
+::ng-deep .bg-black {
+  background-color: hsl(0, 0%, 4%) !important;
+}
+
+::ng-deep .bg-white {
+  background-color: hsl(0, 0%, 100%) !important;
+}
+
+::ng-deep .bg-grey-light {
+  background-color: #5b5b5b !important;
+}
+
+::ng-deep .card {
+  font-size: 1rem;
+  line-height: 1.25;
+  background: #ffffff;
+  color: #4b4b4b;
+  margin-bottom: 1.5rem;
+  border-radius: 0.25rem;
+  -webkit-box-shadow: 0 2px 12px 0 #dfe3eb;
+  box-shadow: 0 2px 12px 0 #dfe3eb;
+  font-weight: 400;
+  border: 0 solid #ffffff;
+  scrollbar-face-color: #dadada;
+  scrollbar-track-color: #f2f2f2;
+}

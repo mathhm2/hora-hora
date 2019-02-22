@@ -1,0 +1,76 @@
+.navbar {
+  height: 45px;
+}
+
+.toolbar-title {
+  font-weight: bold;
+  font-weight: 16px;
+  letter-spacing: 0.5px;
+}
+
+.profile-icon {
+  height: 28px;
+  width: 28px;
+  color: #fff;
+  text-align: center;
+}
+
+.notification-icon {
+  background-color: transparent;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.5);
+
+  &:hover {
+    color: #fff;
+    background-color: #00000042 !important;
+  }
+}
+
+.vertical-icon-color {
+  color: #e2e2e2;
+}
+
+.settings-btn {
+  background-color: transparent;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #00000042 !important;
+  }
+}
+
+.dropdown-toggle::after {
+  display: none;
+}
+
+.dropdown-menu {
+  min-width: 240px;
+  border: 1px solid #6f42c1;
+  box-shadow: 0 1px 8px 0 rgba(84, 0, 255, 0.3);
+}
+
+.dropdown-menu-right {
+  right: 15px !important;
+  top: 40px;
+}
+
+.dropdown-item {
+  cursor: pointer;
+
+  &:focus,
+  &:hover {
+    background-color: #6f42c11c;
+  }
+}
+
+.toolbar-item-name {
+  align-items: center;
+  color: #122232;
+  font: 14px avenirdemi, Helvetica, sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+#menuUser:hover #dropdown-custom-html {
+  display: block;
+}

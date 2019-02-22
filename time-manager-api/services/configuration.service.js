@@ -7,7 +7,7 @@ const ConfigurationModel = require('../models/configuration.model'),
 
 
 exports.findConfigurationByUserId = (req, res, next) => {
-  return ConfigurationModel.find().where('userId').equals(req.params.userId);
+  return ConfigurationModel.findOne().where('userId').equals(req.params.userId);
 }
 
 
@@ -29,7 +29,7 @@ exports.deleteConfiguration = (req, res, next) => {
 
 
 exports.validateCreateConfiguration = (req, res, next) => {
-  req.checkBody('jorney', 'Jorney is required').notEmpty();
+  req.checkBody('journey', 'Journey is required').notEmpty();
   req.checkBody('userId', 'User is required').notEmpty();
   var errors = req.validationErrors();
   validationHandler(errors, res);
@@ -38,7 +38,7 @@ exports.validateCreateConfiguration = (req, res, next) => {
 
 
 exports.validateUpdateConfiguration = (req, res, next) => {
-  req.checkBody('jorney', 'Jorney is required').notEmpty();
+  req.checkBody('journey', 'Journey is required').notEmpty();
   req.checkBody('userId', 'User is required').notEmpty();
   var errors = req.validationErrors();
   validationHandler(errors, res);

@@ -1,0 +1,14 @@
+<div class="bg-purple d-flex justify-content-between nav-bar mb-5">
+
+  <ul class="nav nav-pills">
+    <!-- <li [style.visibility]="hasNavbarButtonBack" class="ilink-nav-back d-flex align-items-center mr-2">
+      <a class="ilink-back-link" routerLink="/">
+        <i class="material-icons">keyboard_arrow_left</i>
+      </a>
+    </li> -->
+    <li *ngFor="let navItem of navBar" class="nav-item">
+      <a [routerLink]="[navItem]"  routerLinkActive="active"  class="nav-link nav-icon nav-style">{{navItem}}</a>
+    </li>
+  </ul>
+
+</div>

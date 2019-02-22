@@ -1,0 +1,31 @@
+<nav class="navbar navbar-light bg-purple">
+  <a class="text-white toolbar-title ml-2">Hora Hora</a>
+  <form class="form-inline d-flex align-items-center">
+
+    <!-- <i class="material-icons notification-icon rounded p-1 mr-3">notifications</i> -->
+
+    <div id="menuUser">
+      <div dropdownToggle class="d-flex align-items-center settings-btn rounded dropdown-toggle p-1">
+        <span alt="profile picture" class="profile-icon d-flex align-items-center justify-content-center bg-ciano rounded mr-1">
+          {{ user.name }}</span>
+        <i class="material-icons vertical-icon-color">more_vert</i>
+      </div>
+
+      <ul id="dropdown-custom-html" class="dropdown-menu dropdown-menu-right p-2" role="menu">
+        <li>
+          <a class="dropdown-item d-flex align-items-center pb-2 pt-2">
+            <i class="material-icons text-purple mr-4">person</i>
+            <span class="toolbar-item-name">Profile</span>
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item d-flex align-items-center pb-2 pt-2" (click)="logout()">
+            <i class="material-icons text-danger mr-4">exit_to_app</i>
+            <span class="toolbar-item-name">Log out</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+  </form>
+</nav>

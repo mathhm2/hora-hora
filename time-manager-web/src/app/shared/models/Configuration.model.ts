@@ -4,8 +4,8 @@ export interface Configuration {
         sunday: boolean;
         monday: boolean;
         tuesday: boolean;
-        fourth: boolean;
-        fifth: boolean;
+        wednesday: boolean;
+        thursday: boolean;
         friday: boolean;
         saturday: boolean;
     };

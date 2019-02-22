@@ -1,0 +1,108 @@
+<!-- Login -->
+<div class="background">
+  <div class="d-flex align-items-center justify-content-center h-100">
+
+    <form class="form-signin card" [formGroup]="loginForm" (ngSubmit)="loginWithEmail()">
+      <h1 class="title text-center">Log in to your account</h1>
+
+
+      <!--  Login Google -->
+      <br>
+      <div *ngIf="false">
+        <button class="btn btn-primary text-center login-button-google mt-4" type="button" (click)="authService.googleLogin()">
+          <img style="height: 20px" class="" src="assets/icons/google.svg" alt="">
+          <span class="ml-3">Log In With Google</span>
+        </button>
+
+        <div class="mt-4 mb-4 d-block text-center">
+          <span class="span-text">or</span>
+        </div>
+      </div>
+      <!--  /Login Google -->
+
+      <div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" for="email"><i class="material-icons text-muted">email</i></span>
+          </div>
+          <input type="email" id="email" class="form-control login-input" formControlName="email" placeholder="email"
+            [ngClass]="{ 'is-invalid': submitted && formLogin.email.errors || emailError }">
+          <div *ngIf="submitted && formLogin.email.errors" class="invalid-feedback">
+            <div *ngIf="formLogin.email.errors.required">Email is required</div>
+            <div *ngIf="formLogin.email.errors.email">Email must be a valid email address</div>
+          </div>
+          <div *ngIf="emailError" style="display: block" class="invalid-feedback">
+            <div>{{this.emailError}}</div>
+          </div>
+        </div>
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" for="password"><i class="material-icons text-muted">lock</i></span>
+          </div>
+          <input type="password" id="password" class="form-control login-input" formControlName="password" placeholder="your password"
+            [ngClass]="{ 'is-invalid': submitted && formLogin.password.errors || passwordError }">
+          <div *ngIf="submitted && formLogin.password.errors" class="invalid-feedback">
+            <div *ngIf="formLogin.password.errors.required">Password is required</div>
+          </div>
+          <div *ngIf="passwordError" style="display: block" class="invalid-feedback">
+            <div>{{this.passwordError}}</div>
+          </div>
+        </div>
+
+        <span class="text-click font-weight" (click)="openForgetPasswordModal(forgetPassword)">Forget password?</span>
+      </div>
+
+      <button [disabled]="loading" class="btn btn-primary login-button mt-3 mb-4" type="submit">
+        <span *ngIf="loading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+        <span *ngIf="!loading">Log In</span>
+      </button>
+
+      <div class="text-center">
+        <span class="text-muted font-weight">Don't have an account yet? <b class="text-click" [routerLink]="['/register']">Create
+            free account</b></span>
+      </div>
+
+    </form>
+
+  </div>
+</div>
+
+<!-- Recovery Key -->
+<ng-template #forgetPassword>
+  <div class="modal-body">
+
+    <div class="d-flex mb-5">
+      <h4 class="modal-title pull-left mr-auto">Recuperar Senha</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="closeResetPassword()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <div class="d-flex">
+      <p>Digite seu email de recuperação</p>
+    </div>
+
+    <form [formGroup]="rescueForm" (ngSubmit)="resetPassword()">
+      <div class="form-group mb-5">
+        <input type="text" id="rescueEmail" class="form-control login-input" placeholder="email" formControlName="email"
+          [ngClass]="{ 'is-invalid': submittedRescuePassword && formRescue.email.errors }">
+        <div class="invalid-feedback" *ngIf="submittedRescuePassword && formRescue.email.errors">
+          <div *ngIf="formRescue.email.errors.required">Email é obrigatorio</div>
+          <div *ngIf="formRescue.email.errors.email">Digite um endereço de email valido</div>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-end">
+        <button class="btn mr-2 btn-light" (click)="closeResetPassword()">Cancelar</button>
+        <button class="btn btn-primary">Recuperar</button>
+
+        <button class="btn btn-primary" *ngIf="loading" [disabled]="loading">
+          <span class="spinner-border spinner-border-sm" role="status"></span>
+        </button>
+      </div>
+
+    </form>
+
+  </div>
+</ng-template>

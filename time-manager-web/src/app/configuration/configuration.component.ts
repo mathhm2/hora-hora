@@ -4,6 +4,7 @@ import { faCheck, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 
 import { Configuration } from '../shared/models/Configuration.model';
 import { ConfigurationService } from './configuration.service';
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-configuration',
@@ -12,7 +13,10 @@ import { ConfigurationService } from './configuration.service';
 })
 
 export class ConfigurationComponent implements OnInit {
-  private userID = '5c48ce611debe10818b71b85';
+  private dataLogin = JSON.parse(localStorage.getItem('currentUser'));
+  private userID = this.dataLogin.user._id;
+  private configurationType = false;
+  loading = false;
 
   // TypeScript
   registerForm: FormGroup;
@@ -29,8 +33,8 @@ export class ConfigurationComponent implements OnInit {
     { label: 'Sunday', value: false },
     { label: 'Monday', value: false },
     { label: 'Tuesday', value: false },
-    { label: 'Fourth', value: false },
-    { label: 'Fifth', value: false },
+    { label: 'wednesday', value: false },
+    { label: 'thursday', value: false },
     { label: 'Friday', value: false },
     { label: 'Saturday', value: false }
   ]
@@ -45,8 +49,8 @@ export class ConfigurationComponent implements OnInit {
         sunday: null,
         monday: null,
         tuesday: null,
-        fourth: null,
-        fifth: null,
+        wednesday: null,
+        thursday: null,
         friday: null,
         saturday: null
       },
@@ -56,31 +60,36 @@ export class ConfigurationComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.startComponentData();
-  }
-
-  // inicia os dados do component
-  startComponentData() {
-    // From validate
     this.registerForm = this.formBuilder.group({
       journey: ['', Validators.required]
     });
+    this.startComponentData();
+  }
 
-    // Get dados do usuario
-    this.configurationService
-      .getConfigurationByUser(this.userID)
-      .subscribe((query: any) => {
-        if (query) {
-          this.configuration = query;
-          this.registerForm.patchValue({
-            journey: query.journey
-          });
-
-          for (let i = 0; i < this.days.length; i++) {
-            this.days[i].value = query.days[this.days[i].label.toLowerCase()];
+  startComponentData() {
+    this.configurationService.getConfigurationByUser(this.userID)
+      .pipe(first())
+      .subscribe(
+        data => {
+          if (data) {
+            this.configurationType = true;
+            this.registerForm.patchValue({
+              journey: data['journey']
+            });
+            for (let i = 0; i < this.days.length; i++) {
+              this.days[i].value = (data['days'][this.days[i].label.toLowerCase().toString()] ? true : false);
+              this.configuration.days[this.days[i].label.toLowerCase().toString()] = (data['days'][this.days[i].label.toLowerCase().toString()] ? true : false);
+            }
+            this.configuration._id = data['_id'];
+            this.configuration.journey = data['journey'];
+            this.configuration.userId = this.userID;
           }
+        },
+        error => {
+          alert('Erro - console');
+          console.log('Error -', error);
         }
-      });
+      );
   }
 
   // Ativa os dias da semana BTN[ Check ]
@@ -114,22 +123,35 @@ export class ConfigurationComponent implements OnInit {
     if (this.checkDayWeek()) { this.daysSubmitted = true; return; }
 
     // Verifica se e update / create com base _id configuration
-    if (this.configuration._id) {
+    if (this.configurationType) {
       this.configuration.journey = this.registerForm.value['journey'].toString();
       this.configurationService.updateConfiguration(this.configuration._id, this.configuration)
-        .subscribe((apiResult) => {
-          console.log(apiResult);
-        });
+        .pipe(first())
+        .subscribe(
+          data => {
+            alert('Alterado com sucesso');
+            this.startComponentData();
+          },
+          error => {
+            alert('Erro - console');
+            console.log('Error: ', error);
+          }
+        );
     } else {
-
       this.configuration.journey = this.registerForm.value['journey'].toString();
       this.configuration.userId = this.userID;
-
-      console.log(this.configuration);
       this.configurationService.createConfiguration(this.configuration)
-        .subscribe((apiResult) => {
-          console.log(apiResult);
-        });
+        .pipe(first())
+        .subscribe(
+          data => {
+            alert('Cadastrado com sucesso');
+            this.startComponentData();
+          },
+          error => {
+            alert('Error - console');
+            console.log('Error: ', error);
+          }
+        );
     }
   }
 }

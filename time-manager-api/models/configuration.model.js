@@ -9,7 +9,7 @@ const ConfigurationSchema = new Schema({
   name: {
     type: String
   },
-  jorney: {
+  journey: {
     type: String,
     required: true
   },

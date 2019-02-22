@@ -10,6 +10,7 @@ exports.signup = (req, res, next) => {
   const body = req.body;
 
   return UserModel.create({
+    name: body.name,
     email: body.email,
     password: body.password
   });

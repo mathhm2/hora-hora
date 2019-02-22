@@ -1,0 +1,23 @@
+.nav-bar {
+  height: 50px;
+  align-items: center;
+}
+
+.nav-style {
+  padding: 5px 15px;
+  border-radius: .5em;
+  border: 1px solid #6316e6ba;
+  color: #ffffff !important;
+  width: 120px;
+  text-align: center;
+  margin: 0 5px;
+  box-shadow: 0 0 2px #49c3be;
+  background: #8238ff;
+  text-transform: capitalize;
+}
+
+.nav-style:hover {
+  background: #6316e6ba;
+  border: 1px solid #9c83c5ba;
+  box-shadow: 0 0 2px #ffffff;
+}
